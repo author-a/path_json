@@ -1,0 +1,18 @@
+#!/bin/bash
+
+search=".git"
+value_from_json="$(jq '.variable.s3bucket_name.default' test.json)"
+start_path="$PWD/"
+
+until [ "$search" = "$(ls -d $search 2> /dev/null)" ]
+do
+  cd ../
+done
+
+repo_path=$PWD
+relitive_path=${start_path/"$repo_path"\//""}
+
+echo "$relitive_path"
+
+value_from_json="$(echo "$value_from_json" | sed "s/\"//g")"
+echo "$value_from_json"

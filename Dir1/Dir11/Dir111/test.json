@@ -1,0 +1,14 @@
+{
+  "variable": {
+    "s3bucket_name": {
+      "default": "terraform-states"
+    },
+    "s3bucket_region": {
+      "default": "us-east-1"
+    },
+    "dynamodb_table_name": {
+      "default": "terraform_state_lock"
+    }
+  }
+}
+
